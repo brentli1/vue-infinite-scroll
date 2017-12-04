@@ -1,5 +1,5 @@
 <template>
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="padding: 30px 15px;">
         <div class="panel-heading">{{ article.author }}</div>
 
         <div class="panel-body">
