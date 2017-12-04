@@ -23,18 +23,22 @@ const mutations = {
 const actions = {
 	fetchArticles: ({ commit, state }) => {
 		return new Promise((resolve, reject) => {
-			let url = '';
-			if (state.current_page == 0) {
-				url = '/articles?page=1';
+			if (state.current_page != state.last_page) {
+				let url = '';
+				if (state.current_page == 0) {
+					url = '/articles?page=1';
+				} else {
+					url = state.next_page_url;
+				}
+	
+				axios.get(url)
+					.then(({ data }) => {
+						commit('fetchArticles', data)
+						resolve(true);
+					});
 			} else {
-				url = state.next_page_url;
+				resolve(false);
 			}
-
-			axios.get(url)
-				.then(({ data }) => {
-					commit('fetchArticles', data)
-					resolve();
-				});
 		});
 	}
 };
