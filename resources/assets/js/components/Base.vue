@@ -24,7 +24,7 @@
             this.$store.dispatch('fetchArticles');
 
             window.onscroll = (ev) => {
-                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !isLoading) {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !this.isLoading) {
                     this.isLoading = true;
                     this.$store.dispatch('fetchArticles').then((payload) => {
                         this.isLoading = false;
