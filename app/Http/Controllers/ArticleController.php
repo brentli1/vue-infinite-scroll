@@ -22,4 +22,22 @@ class ArticleController extends Controller
 
         return $articles;
     }
+
+    /**
+     * undocumented function summary
+     *
+     * Undocumented function long description
+     *
+     * @param Type $var Description
+     * @return type
+     * @throws conditon
+     **/
+    public function show($id)
+    {
+        $article = Article::find($id);
+
+        return view('article', [
+            'article' => $article
+        ]);
+    }
 }

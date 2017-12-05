@@ -4,6 +4,7 @@
 
         <div class="panel-body">
             {{ article.body }}
+            <a :href="'/articles/'+article.id">Click Here for more.</a>
         </div>
     </div>
 </template>
