@@ -25,12 +25,13 @@
                 isSavingScrollPosition: false
             }
         },
-        mounted() {
+        created() {
             // Fetch articles unless articles already are present
-            if (Object.keys(this.articles).length === 0 && this.articles.constructor === Object) {
+            if (Object.keys(this.articles).length === 0) {
                 this.fetchArticles();
             }
-
+        },
+        mounted() {
             // Set the scroll position of the page based on state
             window.scrollTo(0, this.scrollPosition);
 
